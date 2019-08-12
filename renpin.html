@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人品</title>
+</head>
+<body>
+    <div id="box">
+        <!--<label for="username">姓名</label>-->
+        <input type="text" id="score" onBlur="suan()">
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+//    var username = document.getElementById(username);
+    var score = document.getElementById("score");
+//    score.onblur = function
+    function suan (){
+    var score = document.getElementById("score");
+        if (score.value<60){
+             alert("你离及格差点，加油，再接再厉");
+        } else if(score.value<80){
+            alert("你很厉害，继续加油哦");
+        } else if(score.value<90){
+            alert("厉害，但差一点满分哦，继续努力");
+        }else{
+            alert("你得了满分，你是最棒的");
+        }
+    }
+//    suan();
+//    functi    on suan(){
+//        var score = document.getElementById("score");
+//        if(score.value>60){
+//            alert("恭喜你及格了")
+//        }else{alert("很遗憾，没有及格，再接再厉哦")}
+//    }
+//    suan();
+//
+
+</script>
