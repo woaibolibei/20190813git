@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>二维数组</title>
+        <script type="text/javascript">
+            var count = 0;//从1到25累加中间变量；
+            var arr = [];
+            for(var i = 0; i < 5;i++){
+                var newArr = [];
+                for(var j = 0;j < 5;j++){
+                    newArr.push(++count);
+                }
+                arr.push(newArr);
+            }
+            document.write(arr);
+            document.write("<br/>");
+            for(var k = 0;k < arr.length;k++){
+                for(var t = 0;t <= k;t++){
+                    document.write(arr[k][t]+ "&ensp;" );
+                }
+                document.write("<br/>");
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

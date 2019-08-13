@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>秒表</title>
+        <style>
+            #div1{
+                width: 300px;
+                height: 400px;
+                background-color: aqua;
+                margin: 100px auto;
+                text-align: center;
+            }
+            #count{
+                width: 200px;
+                height: 150px;
+                line-height: 150px;
+                margin: auto;
+                font-size: 30px;
+            }
+            #div1 input{
+                width: 150px;
+                height: 50px;
+                background-color: yellow;
+                font-size: 25px;
+                margin-top: 20px;
+            }
+        </style>
+        <script type="text/javascript">
+            function $(id){
+                return document.getElementById(id);
+            }
+            window.onload = function(){
+                //点击开始键开始计数
+                var count = 0 ;//开始计数后累加的总秒数
+                var timer = null;
+                $("start").onclick = function(){
+                    timer = setInterval(function(){
+//                        clearInterval(timer);
+                        count++;
+                        $("id-S").innerHTML = showNum(count % 60);
+                        $("id-M").innerHTML = showNum(parseInt(count/60)% 60);
+                        $("id-H").innerHTML = showNum(parseInt(count / 3000));
+                    },100);
+                }
+                //暂停
+                $("pause").onclick = function(){
+                    clearInterval(timer);
+                }
+                //停止
+                $("stop").onclick = function(){
+                    clearInterval(timer);
+                    count = 0 ;
+                    $("id-S").innerHTML = "00";
+                    $("id-M").innerHTML = "00";
+                    $("id-H").innerHTML = "00";
+                }
+            }
+            //处理单个数字
+            var showNum = function(num){
+                if(num < 10){
+                    return "0" + num;
+                } else {
+                    return num;
+                }
+            }
+        </script>
+    </head>
+    <body>
+    <div id="div1">
+        <div id="count">
+            <span id="id-H">00</span>：
+            <span id="id-M">00</span>：
+            <span id="id-S">00</span>
+        </div>
+        <input id = "start" type="button" value="开始">
+        <input id = "pause" type="button" value="暂停">
+        <input id = "stop" type="button"  value="停止">
+    </div>
+
+    </body>
+</html>

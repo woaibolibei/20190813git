@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>匀速运动</title>
+        <style>
+           *{
+                margin: 0;
+                padding: 0;
+            }
+            div{
+                width: 100px;
+                height: 100px;
+                background-color:red;
+                position: absolute;
+                left: 0;
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+
+    </body>
+</html>
+<script>
+    var speedx = 3;
+    var speedy = 3;
+    var div = document.querySelector('div');
+    function move(){
+        var currentLeft = parseInt(window.getComputedStyle(div).left);
+        var currenttop = parseInt(window.getComputedStyle(div).top);
+        var left = currentLeft + speedx;
+        var top = currenttop + speedy;
+        div.style.left = left +"px";
+        div.style.top = top +"px";
+    }
+    setInterval(function(){
+        move()
+    },20);
+</script>
